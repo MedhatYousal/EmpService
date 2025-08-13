@@ -13,7 +13,7 @@ import org.springframework.data.repository.query.Param;
  */
 public interface EmpRepository extends JpaRepository<Employee, Long> {
 
-    @EntityGraph(attributePaths = {"empProjectLst"})
+    @EntityGraph(value = "EmployeeWithProject")
     @Query(value = "SELECT e FROM Employee e WHERE e.empNo = :empNo")
     Employee findEmpById(@Param("empNo") Long empNo);
 }
